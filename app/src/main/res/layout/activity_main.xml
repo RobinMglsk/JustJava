@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.android.justjava.MainActivity">
 
     <TextView
@@ -25,57 +25,50 @@
         <Button
             android:layout_width="42dp"
             android:layout_height="42dp"
-            android:text="-"
             android:onClick="decrement"
-            />
+            android:text="-" />
 
         <TextView
             android:id="@+id/quantity_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="2"
-            android:textColor="@android:color/black"
-            android:textSize="16sp"
             android:paddingLeft="8dp"
             android:paddingRight="8dp"
-            />
+            android:text="2"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+
         <Button
             android:layout_width="42dp"
             android:layout_height="42dp"
-            android:text="+"
             android:onClick="increment"
-            />
-
+            android:text="+" />
 
 
     </LinearLayout>
 
 
-
-
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/form_price"
         android:layout_marginTop="16dp"
+        android:text="@string/form_price"
         android:textAllCaps="true" />
 
     <TextView
         android:id="@+id/price_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:text="$10"
         android:textColor="@android:color/black"
-        android:layout_marginTop="16dp"
-        android:textSize="16sp"/>
+        android:textSize="16sp" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/form_button"
         android:layout_marginTop="16dp"
         android:onClick="submitOrder"
-        />
+        android:text="@string/form_button" />
 
 </LinearLayout>
