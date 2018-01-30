@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        display(quantity);
+        displayQuantiy(quantity);
         displayPrice(quantity);
     }
 
@@ -27,9 +27,38 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view) {
-        String part1 = "Total: ";
-        String part2 = "\nThank you!";
-        displayMessage(part1, part2);
+        double totalPrice = calculatePrice(quantity);
+        String msg = createOrderSummary(totalPrice, quantity, "Robin Migalski");
+        displayMessage(msg);
+    }
+
+    /***
+     *  This method creates an order summary
+     *  @param totalPrice The total price
+     *  @param quantity The quantity of cups
+     *  @param name Customer name
+     *
+     *  @return String order summary
+     */
+    private String createOrderSummary(double totalPrice, int quantity, String name){
+
+        String msg = "Name: " + name + "\n";
+        msg += "Quantity: " + quantity + "\n";
+        msg += "Total: " + NumberFormat.getCurrencyInstance().format(totalPrice)  + "\n";
+        msg += "Thank you!";
+
+        return msg;
+
+    }
+
+    /**
+     *  Calculate price
+     *  @param quantity Quantity of cups
+     *  @return price of cups
+     */
+
+    private double calculatePrice(int quantity){
+        return quantity*price;
     }
 
     /**
@@ -37,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
      */
     public void increment(View view) {
         quantity += 1;
-        display(quantity);
+        displayQuantiy(quantity);
         displayPrice(quantity);
     }
 
@@ -49,16 +78,16 @@ public class MainActivity extends AppCompatActivity {
         if(quantity > 1) {
             quantity -= 1;
         }
-        display(quantity);
+        displayQuantiy(quantity);
         displayPrice(quantity);
     }
 
     /**
      * This method displays the given quantity value on the screen.
      */
-    private void display(int number) {
+    private void displayQuantiy(int quantity) {
         TextView quantityTextView = (TextView) findViewById(R.id.quantity_text_view);
-        quantityTextView.setText("" + number);
+        quantityTextView.setText("" + quantity);
     }
 
     /**
@@ -74,10 +103,9 @@ public class MainActivity extends AppCompatActivity {
     /**
      * This method displays the given text on the screen.
      */
-    private void displayMessage(String part1, String part2) {
+    private void displayMessage(String msg) {
 
-        double total_price = price * quantity;
         TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
-        priceTextView.setText(part1 + NumberFormat.getCurrencyInstance().format(total_price)+part2);
+        priceTextView.setText(msg);
     }
 }
