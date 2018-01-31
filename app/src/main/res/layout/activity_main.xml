@@ -14,8 +14,26 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/form_quantity"
+        android:text="@string/form_toppings"
         android:textAllCaps="true" />
+
+    <CheckBox
+        android:id="@+id/WhippedCream"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/toppings_optionOne"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:textSize="16sp"
+        android:paddingLeft="24dp"
+        android:layout_marginTop="16dp"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/form_quantity"
+        android:textAllCaps="true"
+         android:paddingTop="16dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -56,7 +74,7 @@
         android:textAllCaps="true" />
 
     <TextView
-        android:id="@+id/price_text_view"
+        android:id="@+id/order_summary_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"

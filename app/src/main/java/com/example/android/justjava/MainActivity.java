@@ -1,10 +1,15 @@
 package com.example.android.justjava;
 
+import android.net.NetworkCapabilities;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import java.lang.reflect.Array;
 import java.text.NumberFormat;
 
 /**
@@ -28,8 +33,21 @@ public class MainActivity extends AppCompatActivity {
      */
     public void submitOrder(View view) {
         double totalPrice = calculatePrice(quantity);
-        String msg = createOrderSummary(totalPrice, quantity, "Robin Migalski");
+        Log.v("MainActivity","The price is "+totalPrice);
+
+        boolean[] extraOptions;
+        extraOptions = new boolean[1];
+        extraOptions[0] = false; //WhippedCream
+
+        CheckBox hasWhippedCream = (CheckBox) findViewById(R.id.WhippedCream);
+        extraOptions[0] = hasWhippedCream.isChecked();
+
+
+
+
+        String msg = createOrderSummary(totalPrice, quantity, "Robin Migalski", extraOptions);
         displayMessage(msg);
+
     }
 
     /***
@@ -37,13 +55,19 @@ public class MainActivity extends AppCompatActivity {
      *  @param totalPrice The total price
      *  @param quantity The quantity of cups
      *  @param name Customer name
+     *  @param extra options Customer name
      *
      *  @return String order summary
      */
-    private String createOrderSummary(double totalPrice, int quantity, String name){
+    private String createOrderSummary(double totalPrice, int quantity, String name, boolean[] options){
 
         String msg = "Name: " + name + "\n";
         msg += "Quantity: " + quantity + "\n";
+        if(options[0]){
+            msg += "Add whipped cream: Yes\n";
+        }else{
+            msg += "Add whipped cream: No\n";
+        }
         msg += "Total: " + NumberFormat.getCurrencyInstance().format(totalPrice)  + "\n";
         msg += "Thank you!";
 
@@ -96,8 +120,8 @@ public class MainActivity extends AppCompatActivity {
     private void displayPrice(int number) {
 
         double total_price = price * number;
-        TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
-        priceTextView.setText(NumberFormat.getCurrencyInstance().format(total_price));
+        TextView orderSummaryTextView = (TextView) findViewById(R.id.order_summary_text_view);
+        orderSummaryTextView.setText(NumberFormat.getCurrencyInstance().format(total_price));
     }
 
     /**
@@ -105,7 +129,11 @@ public class MainActivity extends AppCompatActivity {
      */
     private void displayMessage(String msg) {
 
-        TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
-        priceTextView.setText(msg);
+        TextView orderSummaryTextView = (TextView) findViewById(R.id.order_summary_text_view);
+        orderSummaryTextView.setText(msg);
+        Toast toastMsg = Toast.makeText(this, msg, Toast.LENGTH_SHORT);
+        toastMsg.setMargin(10,0);
+        toastMsg.show();
+
     }
 }
