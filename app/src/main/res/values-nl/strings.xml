@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Gewoon Koffie</string>
+    <string name="nameField">Naam</string>
+    <string name="form_toppings">Toppings</string>
+    <string name="toppings_optionOne">Slagroom</string>
+    <string name="toppings_optionTwo">Chocolade</string>
+    <string name="form_quantity">Aantal</string>
+    <string name="form_price">Overzicht van bestelling</string>
+    <string name="form_button">Bestellen</string>
+    <string name="email_subject">JustJava bestelling van</string>
+    <string name="boolean_yes">Ja</string>
+    <string name="boolean_no">Neen</string>
+    <string name="form_total">Totaal</string>
+    <string name="error_name">Geef een naam in.</string>
+    <string name="error_quantityMin">Je moet minstens 1 koffie bestellen.</string>
+    <string name="error_quantityMax">Je kan max 99 koffie\'s bestellen.</string>
+</resources>

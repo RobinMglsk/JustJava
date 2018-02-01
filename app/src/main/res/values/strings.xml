@@ -1,8 +1,17 @@
 <resources>
-    <string name="app_name">Just Java</string>
+    <string name="app_name" translatable="false">Just Java</string>
+    <string name="nameField">Name</string>
     <string name="form_toppings">Toppings</string>
     <string name="toppings_optionOne">Whipped Cream</string>
+    <string name="toppings_optionTwo">Chocolate</string>
     <string name="form_quantity">Quantity</string>
     <string name="form_price">Order Summary</string>
     <string name="form_button">Order</string>
+    <string name="form_total">Total</string>
+    <string name="error_name">Please provide a name.</string>
+    <string name="error_quantityMin">Quantity has to be more than 0.</string>
+    <string name="error_quantityMax">Quantity has to be less than 100.</string>
+    <string name="email_subject">"JustJava Order from "</string>
+    <string name="boolean_yes">Yes</string>
+    <string name="boolean_no">No</string>
 </resources>
